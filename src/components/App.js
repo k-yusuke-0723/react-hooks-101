@@ -3,6 +3,7 @@ import React, { useReducer, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import reducer from '../reducers';
+import Event from './Event';
 
 const App = () => {
   // reducerで扱うのはイベント一覧
@@ -56,7 +57,7 @@ const App = () => {
           </tr>
         </thead>
         <tbody>
-
+          { state.map((event, index) => (<Event key={index} event={event} dispatch={dispatch} />))}
         </tbody>
       </table>
     </div>
