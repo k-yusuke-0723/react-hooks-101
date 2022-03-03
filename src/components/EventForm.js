@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CREATE_EVENT, DELETE_ALL_EVENT } from '../actions';
 
 const EventForm = ({state, dispatch}) => {
   // reducerで扱うのはイベント一覧
@@ -12,7 +13,7 @@ const EventForm = ({state, dispatch}) => {
     
     // typeという必須の属性を付属してdispatchを呼び出す事ができる
     dispatch({
-      type: 'CREATE_EVENT',
+      type: CREATE_EVENT,
       title,
       body
     });
@@ -26,7 +27,7 @@ const EventForm = ({state, dispatch}) => {
   const deleteAllEvents = e => {
     e.preventDefault();
     const result = window.confirm('全てのイベントを本当に削除しても良いですか？');
-    if (result) dispatch({ type: 'DELETE_ALL_EVENT' });
+    if (result) dispatch({ type: DELETE_ALL_EVENT });
   }
 
   // ボタン活性・非活性切り替え
